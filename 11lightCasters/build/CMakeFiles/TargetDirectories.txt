@@ -1,0 +1,3 @@
+/Users/larry/code/learnopengl/10lightingMaps/build/CMakeFiles/edit_cache.dir
+/Users/larry/code/learnopengl/10lightingMaps/build/CMakeFiles/rebuild_cache.dir
+/Users/larry/code/learnopengl/10lightingMaps/build/CMakeFiles/main.dir

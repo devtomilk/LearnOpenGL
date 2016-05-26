@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/larry/Code/learnopengl/LearnCMake/student/include/Student.h
+string
+-
+
+/Users/larry/Code/learnopengl/LearnCMake/usestudentlib/libtest.cpp
+../student/include/Student.h
+/Users/larry/Code/learnopengl/LearnCMake/student/include/Student.h
+

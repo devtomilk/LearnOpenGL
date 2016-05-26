@@ -1,0 +1,3 @@
+/Users/larry/Code/learnopengl/LearnCMake/student/build/CMakeFiles/edit_cache.dir
+/Users/larry/Code/learnopengl/LearnCMake/student/build/CMakeFiles/rebuild_cache.dir
+/Users/larry/Code/learnopengl/LearnCMake/student/build/CMakeFiles/testStudent.dir
