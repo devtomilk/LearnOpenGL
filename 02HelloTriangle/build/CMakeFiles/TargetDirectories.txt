@@ -1,0 +1,6 @@
+/Users/larry/Code/learnopengl/02HelloTriangle/build/CMakeFiles/edit_cache.dir
+/Users/larry/Code/learnopengl/02HelloTriangle/build/CMakeFiles/ex01.dir
+/Users/larry/Code/learnopengl/02HelloTriangle/build/CMakeFiles/rebuild_cache.dir
+/Users/larry/Code/learnopengl/02HelloTriangle/build/CMakeFiles/main.dir
+/Users/larry/Code/learnopengl/02HelloTriangle/build/CMakeFiles/ex03.dir
+/Users/larry/Code/learnopengl/02HelloTriangle/build/CMakeFiles/ex02.dir

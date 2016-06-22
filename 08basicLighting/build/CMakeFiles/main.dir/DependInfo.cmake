@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/larry/Code/learnopengl/09materials/main.cpp" "/Users/larry/Code/learnopengl/09materials/build/CMakeFiles/main.dir/main.cpp.o"
+  "/Users/larry/Code/learnopengl/08BasicLighting/main.cpp" "/Users/larry/Code/learnopengl/08BasicLighting/build/CMakeFiles/main.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "Clang")
 

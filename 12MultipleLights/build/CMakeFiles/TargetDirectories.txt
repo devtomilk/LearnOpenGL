@@ -1,0 +1,3 @@
+/Users/larry/Code/learnopengl/12MultipleLights/build/CMakeFiles/edit_cache.dir
+/Users/larry/Code/learnopengl/12MultipleLights/build/CMakeFiles/rebuild_cache.dir
+/Users/larry/Code/learnopengl/12MultipleLights/build/CMakeFiles/main.dir

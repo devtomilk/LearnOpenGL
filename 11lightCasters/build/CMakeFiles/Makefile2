@@ -54,45 +54,119 @@ RM = /usr/local/Cellar/cmake/3.5.0/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/larry/code/learnopengl/10lightingMaps
+CMAKE_SOURCE_DIR = /Users/larry/Code/learnopengl/11LightCasters
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/larry/code/learnopengl/10lightingMaps/build
+CMAKE_BINARY_DIR = /Users/larry/Code/learnopengl/11LightCasters/build
 
 #=============================================================================
-# Target rules for target CMakeFiles/main.dir
+# Target rules for target CMakeFiles/spot.dir
 
 # All Build rule for target.
-CMakeFiles/main.dir/all:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/depend
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/larry/code/learnopengl/10lightingMaps/build/CMakeFiles --progress-num=1,2 "Built target main"
-.PHONY : CMakeFiles/main.dir/all
+CMakeFiles/spot.dir/all:
+	$(MAKE) -f CMakeFiles/spot.dir/build.make CMakeFiles/spot.dir/depend
+	$(MAKE) -f CMakeFiles/spot.dir/build.make CMakeFiles/spot.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/larry/Code/learnopengl/11LightCasters/build/CMakeFiles --progress-num=5,6 "Built target spot"
+.PHONY : CMakeFiles/spot.dir/all
 
 # Include target in all.
-all: CMakeFiles/main.dir/all
+all: CMakeFiles/spot.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/larry/code/learnopengl/10lightingMaps/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/larry/code/learnopengl/10lightingMaps/build/CMakeFiles 0
-.PHONY : CMakeFiles/main.dir/rule
+CMakeFiles/spot.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/larry/Code/learnopengl/11LightCasters/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/spot.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/larry/Code/learnopengl/11LightCasters/build/CMakeFiles 0
+.PHONY : CMakeFiles/spot.dir/rule
 
 # Convenience name for target.
-main: CMakeFiles/main.dir/rule
+spot: CMakeFiles/spot.dir/rule
 
-.PHONY : main
-
-# clean rule for target.
-CMakeFiles/main.dir/clean:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/clean
-.PHONY : CMakeFiles/main.dir/clean
+.PHONY : spot
 
 # clean rule for target.
-clean: CMakeFiles/main.dir/clean
+CMakeFiles/spot.dir/clean:
+	$(MAKE) -f CMakeFiles/spot.dir/build.make CMakeFiles/spot.dir/clean
+.PHONY : CMakeFiles/spot.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/spot.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/point.dir
+
+# All Build rule for target.
+CMakeFiles/point.dir/all:
+	$(MAKE) -f CMakeFiles/point.dir/build.make CMakeFiles/point.dir/depend
+	$(MAKE) -f CMakeFiles/point.dir/build.make CMakeFiles/point.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/larry/Code/learnopengl/11LightCasters/build/CMakeFiles --progress-num=3,4 "Built target point"
+.PHONY : CMakeFiles/point.dir/all
+
+# Include target in all.
+all: CMakeFiles/point.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/point.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/larry/Code/learnopengl/11LightCasters/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/point.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/larry/Code/learnopengl/11LightCasters/build/CMakeFiles 0
+.PHONY : CMakeFiles/point.dir/rule
+
+# Convenience name for target.
+point: CMakeFiles/point.dir/rule
+
+.PHONY : point
+
+# clean rule for target.
+CMakeFiles/point.dir/clean:
+	$(MAKE) -f CMakeFiles/point.dir/build.make CMakeFiles/point.dir/clean
+.PHONY : CMakeFiles/point.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/point.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/directional.dir
+
+# All Build rule for target.
+CMakeFiles/directional.dir/all:
+	$(MAKE) -f CMakeFiles/directional.dir/build.make CMakeFiles/directional.dir/depend
+	$(MAKE) -f CMakeFiles/directional.dir/build.make CMakeFiles/directional.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/larry/Code/learnopengl/11LightCasters/build/CMakeFiles --progress-num=1,2 "Built target directional"
+.PHONY : CMakeFiles/directional.dir/all
+
+# Include target in all.
+all: CMakeFiles/directional.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/directional.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/larry/Code/learnopengl/11LightCasters/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/directional.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/larry/Code/learnopengl/11LightCasters/build/CMakeFiles 0
+.PHONY : CMakeFiles/directional.dir/rule
+
+# Convenience name for target.
+directional: CMakeFiles/directional.dir/rule
+
+.PHONY : directional
+
+# clean rule for target.
+CMakeFiles/directional.dir/clean:
+	$(MAKE) -f CMakeFiles/directional.dir/build.make CMakeFiles/directional.dir/clean
+.PHONY : CMakeFiles/directional.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/directional.dir/clean
 
 .PHONY : clean
 

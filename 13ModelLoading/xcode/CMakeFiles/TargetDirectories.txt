@@ -1,0 +1,4 @@
+/Users/larry/Code/learnopengl/13ModelLoading/xcode/CMakeFiles/voxel.dir
+/Users/larry/Code/learnopengl/13ModelLoading/xcode/CMakeFiles/main.dir
+/Users/larry/Code/learnopengl/13ModelLoading/xcode/CMakeFiles/ALL_BUILD.dir
+/Users/larry/Code/learnopengl/13ModelLoading/xcode/CMakeFiles/ZERO_CHECK.dir

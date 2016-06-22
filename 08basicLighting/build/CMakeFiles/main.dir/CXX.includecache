@@ -6,12 +6,12 @@
 
 #IncludeRegexTransform: 
 
-/Users/larry/Code/learnopengl/09materials/main.cpp
+/Users/larry/Code/learnopengl/08BasicLighting/main.cpp
 iostream
 -
-GL/glew.h
+math.h
 -
-GLFW/glfw3.h
+GL/glew.h
 -
 glm/glm.hpp
 -
@@ -19,14 +19,16 @@ glm/gtc/matrix_transform.hpp
 -
 glm/gtc/type_ptr.hpp
 -
+GLFW/glfw3.h
+-
+SOIL/SOIL.h
+-
 ../Shader.h
 /Users/larry/Code/learnopengl/Shader.h
 ../Camera.h
 /Users/larry/Code/learnopengl/Camera.h
 
 /Users/larry/Code/learnopengl/Camera.h
-iostream
--
 GL/glew.h
 -
 glm/glm.hpp
@@ -34,8 +36,6 @@ glm/glm.hpp
 
 /Users/larry/Code/learnopengl/Shader.h
 iostream
--
-string
 -
 GL/glew.h
 -
@@ -44,6 +44,8 @@ fileutils.h
 
 /Users/larry/Code/learnopengl/fileutils.h
 iostream
+-
+GL/glew.h
 -
 
 /usr/local/include/GL/glew.h
@@ -97,6 +99,8 @@ GL/glext.h
 -
 GL/glu.h
 -
+
+/usr/local/include/SOIL/SOIL.h
 
 /usr/local/include/glm/common.hpp
 detail/func_common.hpp

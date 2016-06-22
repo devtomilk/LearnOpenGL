@@ -1,154 +1,459 @@
-// baisc 
+// It took me 100 minutes to write this little program 2016/05/27 (shader.h, fileutils.h)
+// language
 #include <iostream>
+#include <math.h>
 
 // glew
+#define GLEW_STATIC
 #include <GL/glew.h>
-
-// glfw
-#include <GLFW/glfw3.h>
 
 // glm
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+// glfw
+#include <GLFW/glfw3.h>
+
+// soil
+#include <SOIL/SOIL.h>
+
+
 // user defined
 #include "../Shader.h"
 #include "../Camera.h"
-
-
-// variables
-GLFWwindow* window = NULL;
-Shader* basicShader;
-Shader* lightShader;
-#define WIDTH 800
-#define HEIGHT 600
-
+//====================================================================================================
+// Variables
+//====================================================================================================
+#define WIN_WIDTH 1024
+#define WIN_HEIGHT 768
+#define TITLE "08BasicLighting"
+GLFWwindow* window;
+bool keys[1024];
+// buffers
 GLuint cubeVAO;
-GLuint lightVAO;
+GLuint lampVAO;
 GLuint VBO;
-glm::vec3 lightPos( 0.0f, 1.2f, 0.0f );
+// shaders
+Shader* cubeShader = NULL;
+Shader* lampShader = NULL;
+Material* material;
 
-GLfloat deltaTime = 0.0f; // Time between current frame and last frame
-GLfloat lastFrame = 0.0f; // Time of last frame
-//====================================================================================================
-// Uniforms
-//====================================================================================================
-GLuint uniformLocModel;
-GLuint uniformLocView;
-GLuint uniformLocProjection;
-GLuint uniformLocObjectColor;
-GLuint uniformLocLightColor;
-GLuint uniformLocLightPos;
-GLuint uniformLocCameraPos;
-
-
-//====================================================================================================
-// Camera Stuff
-//====================================================================================================
 Camera* camera;
+glm::vec3 lampPos;
+// mouse
+bool firstMouse = true;
+GLfloat lastX;
+GLfloat lastY;
+GLfloat cameraYaw = -90.0f;
+GLfloat cameraPitch = 0.0f;
+void scroll_callback( GLFWwindow* window, double xoffset, double yoffset);
+
+// mvp
 glm::mat4 model;
 glm::mat4 view;
 glm::mat4 projection;
-glm::vec3 cameraPos;
-glm::vec3 cameraFront;
-glm::vec3 cameraUp;
 
-GLfloat yaw = -90.0f;
-GLfloat pitch= 0.0f;
-GLfloat lastX = WIDTH / 2.0;
-GLfloat lastY = HEIGHT / 2.0;
-GLfloat fov = 45.0f;
-bool keys[1024];
+GLuint uniformLocView;
+GLuint uniformLocLightColor;
+GLuint uniformLocObjectColor;
+GLuint uniformLocCameraPos;
+GLuint uniformLocLightPos;
 
-
-
-// methods
-bool initFrameworks();
-void setupScene();
-void render();
-void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
-void mouse_callback(GLFWwindow* window, double xpos, double ypos);
-void doMovement();
-
+glm::vec3 lightColor;
+glm::vec3 objectColor;
 
 GLfloat vertices[] = {
-        // Positions          // Normals           // Texture Coords
-        -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f,  0.0f,
-         0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f,  0.0f,
-         0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f,  1.0f,
-         0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f,  1.0f,
-        -0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f,  1.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f,  0.0f,
+    -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+     0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f, 
+     0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f, 
+     0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f, 
+    -0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f, 
+    -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f, 
 
-        -0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  0.0f,  0.0f,
-         0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  1.0f,  0.0f,
-         0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  1.0f,  1.0f,
-         0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  1.0f,  1.0f,
-        -0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  0.0f,  1.0f,
-        -0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  0.0f,  0.0f,
+    -0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+     0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+     0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+     0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+    -0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+    -0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
 
-        -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
-        -0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  1.0f,  1.0f,
-        -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
-        -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
-        -0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  0.0f,  0.0f,
-        -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+    -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
+    -0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+    -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+    -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+    -0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
+    -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
 
-         0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
-         0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  1.0f,  1.0f,
-         0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
-         0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
-         0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  0.0f,  0.0f,
-         0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+     0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
+     0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+     0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+     0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+     0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
+     0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
 
-        -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  0.0f,  1.0f,
-         0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  1.0f,  1.0f,
-         0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  1.0f,  0.0f,
-         0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  1.0f,  0.0f,
-        -0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  0.0f,  0.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  0.0f,  1.0f,
+    -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
+     0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
+     0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+     0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+    -0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+    -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
 
-        -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f,  1.0f,
-         0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  1.0f,  1.0f,
-         0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  1.0f,  0.0f,
-         0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  1.0f,  0.0f,
-        -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  0.0f,  0.0f,
-        -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f,  1.0f
+    -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
+     0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
+     0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+     0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+    -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+    -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f
 };
+
+
+
+//====================================================================================================
+// methods
+//====================================================================================================
+bool initFrameworks();
+void initScene();
+void render();
+bool initGLFW();
+bool initGLEW();
+void key_callback( GLFWwindow* window, int key, int scancode, int action, int mode );
+void mouse_callback( GLFWwindow* window, double xpos, double ypos);
+void doMovement();
+void clean();
+
+
 
 int main()
 {
     if( !initFrameworks() )
     {
-	return -1;
+	std::cout << "Failed to init frameworkd!" << std::endl;
     }
 
-    setupScene();
+    initScene();
 
     while( !glfwWindowShouldClose(window) )
     {
 	glfwPollEvents();
 
 	doMovement();
-
-	GLfloat currentFrame = glfwGetTime();
-	deltaTime = currentFrame - lastFrame;
-	lastFrame = currentFrame;
-
 	render();
 
-	glfwSwapBuffers(window);
-	
+	glfwSwapBuffers( window );
     }
-
+	
+    clean();
     return 0;
 }
+
+bool initFrameworks()
+{
+    if( !initGLFW() )
+    {
+	std::cout << "Failed to init GLFW!" << std::endl;
+	return false;
+    }
+
+    // init GLEW
+    glewExperimental = GL_TRUE;
+    if( glewInit() != GLEW_OK )
+    {
+	std::cout << "Failed to init GLEW!" << std::endl;
+	return false;
+    }
+
+    // set viewport
+    glViewport( 0, 0, WIN_WIDTH, WIN_HEIGHT );
+
+    return true;
+}
+bool initGLFW()
+{
+    if( !glfwInit() )
+    {
+	std::cout << "Failed to init glfw3!" << std::endl;
+	return false;
+    }
+
+    glfwWindowHint( GLFW_CONTEXT_VERSION_MAJOR, 3 );
+    glfwWindowHint( GLFW_CONTEXT_VERSION_MINOR, 3 );
+    glfwWindowHint( GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE );
+    glfwWindowHint( GLFW_RESIZABLE, GL_FALSE );
+    glfwWindowHint( GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE ); // mac specific
+
+    window =  glfwCreateWindow( WIN_WIDTH, WIN_HEIGHT, TITLE, nullptr, nullptr );
+    if( window == NULL )
+    {
+	std::cout << "Failed to create GLFW window!" << std::endl;
+	return false;
+    }
+
+    glfwMakeContextCurrent( window );
+
+    glfwSetKeyCallback( window, key_callback );
+    
+    glfwSetCursorPosCallback( window, mouse_callback );
+
+    glfwSetScrollCallback( window, scroll_callback );
+
+    glfwSetInputMode( window, GLFW_CURSOR, GLFW_CURSOR_DISABLED );
+
+    return true;
+
+}
+
 //====================================================================================================
-// Mouse callback
+// Render
 //====================================================================================================
-bool firstMouse = true;
-void mouse_callback(GLFWwindow* window, double xpos, double ypos)
+
+void render()
+{
+    glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+
+    /*
+    glActiveTexture( GL_TEXTURE0 );
+    glBindTexture( GL_TEXTURE_2D, texture1 );
+    glUniform1i( glGetUniformLocation( cubeShader->program, "myTexture1" ), 0 );
+
+    glActiveTexture( GL_TEXTURE1 );
+    glBindTexture( GL_TEXTURE_2D, texture2 );
+    glUniform1i( glGetUniformLocation( cubeShader->program, "myTexture2" ), 1 );
+    */
+
+    cubeShader->use();
+    // transformation
+    view = glm::lookAt( camera->getPos(), camera->getPos() + camera->getFront(), camera->getUp() );
+    uniformLocView = glGetUniformLocation( cubeShader->program, "V" );
+    glUniformMatrix4fv( uniformLocView, 1, GL_FALSE, glm::value_ptr(view) );
+
+    projection = glm::perspective( camera->getFov(), (GLfloat)WIN_WIDTH/WIN_HEIGHT, camera->getNear(),
+				   camera->getFar() );
+    glUniformMatrix4fv( glGetUniformLocation( cubeShader->program, "P" ), 1, GL_FALSE, glm::value_ptr(projection) );
+    // providing camera pos and lamp pos
+    //glUniform3f( glGetUniformLocation( cubeShader->program, "lightPos" ), lampPos.x, lampPos.y, lampPos.z );
+    glUniform3f( glGetUniformLocation( cubeShader->program, "cameraPos" ),
+		 camera->getPos().x,
+		 camera->getPos().y,
+		 camera->getPos().z );
+
+    // draw cube
+    glBindVertexArray( cubeVAO );
+    glDrawArrays( GL_TRIANGLES, 0, 36 );
+    glBindVertexArray( 0 );
+
+    // draw lamp
+    lampShader->use();
+    view = glm::lookAt( camera->getPos(), camera->getPos() + camera->getFront(), camera->getUp() );
+    uniformLocView = glGetUniformLocation( lampShader->program, "V" );
+    glUniformMatrix4fv( uniformLocView, 1, GL_FALSE, glm::value_ptr(view) );
+
+    projection = glm::perspective( camera->getFov(), (GLfloat)WIN_WIDTH/WIN_HEIGHT, camera->getNear(),
+				   camera->getFar() );
+    glUniformMatrix4fv( glGetUniformLocation( lampShader->program, "P" ), 1, GL_FALSE, glm::value_ptr(projection) );
+
+    glBindVertexArray( lampVAO );
+    glDrawArrays( GL_TRIANGLES, 0, 36 );
+    glBindVertexArray( 0 );
+
+    
+    //glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
+    //glDrawElements( GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0 );
+
+}
+
+//====================================================================================================
+// Init scene
+//====================================================================================================
+
+void initScene()
+{
+    cubeShader = new Shader( "basic.vert", "basic.frag" );
+    lampShader = new Shader( "basic.vert", "lamp.frag" );
+
+    glClearColor( 0.2f, 0.2f, 0.3f, 1.0f );
+    glEnable( GL_DEPTH_TEST );
+
+    //--------------------------------------------------
+    // Geometry
+    //--------------------------------------------------
+    // cube
+    glGenVertexArrays( 1, &cubeVAO );
+    glGenBuffers( 1, &VBO );
+
+    glBindVertexArray( cubeVAO );
+    {
+	// vbo
+	glBindBuffer( GL_ARRAY_BUFFER, VBO );
+	glBufferData( GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW );
+
+	// position
+	glEnableVertexAttribArray( 0 );
+	glVertexAttribPointer( 0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)0 );
+
+	// normals
+	glEnableVertexAttribArray( 1 );
+	glVertexAttribPointer( 1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)) );
+
+    }
+    glBindVertexArray( 0 );
+    glBindBuffer( GL_ARRAY_BUFFER, 0 );
+
+    // lamp
+    glGenVertexArrays( 1, &lampVAO );
+
+    glBindVertexArray( lampVAO );
+    {
+	glBindBuffer( GL_ARRAY_BUFFER, VBO );
+	// positions
+	glEnableVertexAttribArray( 0 );
+	glVertexAttribPointer( 0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)0 );
+    }
+    glBindVertexArray( 0 );
+
+    cubeShader->use();
+    uniformLocLightColor = glGetUniformLocation( cubeShader->program, "lightColor" );
+    uniformLocObjectColor = glGetUniformLocation( cubeShader->program, "objectColor" );
+    glUniform3f( uniformLocLightColor, 1.0f, 1.0f, 1.0f );
+    glUniform3f( uniformLocObjectColor, 0.5f, 0.2f, 0.0f );
+    //--------------------------------------------------
+    // Textures
+    //--------------------------------------------------
+    /*
+    glGenTextures( 1, &texture1 );
+    glBindTexture( GL_TEXTURE_2D, texture1 );
+
+    //glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT );
+    //glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT );
+
+    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST );
+    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
+
+    int width, height;
+    unsigned char* image = SOIL_load_image( "../../container.jpg", &width, &height, 0, SOIL_LOAD_RGB );
+    glTexImage2D( GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image );
+    glGenerateMipmap( GL_TEXTURE_2D );
+    SOIL_free_image_data( image );
+    glBindTexture( GL_TEXTURE_2D, 0 );
+
+    // second texture
+    glGenTextures( 1, &texture2 );
+    glBindTexture( GL_TEXTURE_2D, texture2 );
+
+    image = SOIL_load_image( "../../awesomeface.png", &width, &height, 0, SOIL_LOAD_RGB );
+    glTexImage2D( GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image );
+    glGenerateMipmap( GL_TEXTURE_2D );
+    SOIL_free_image_data( image );
+    glBindTexture( GL_TEXTURE_2D, 0 );
+    */
+
+
+    //--------------------------------------------------
+    // MVP Matrix
+    //--------------------------------------------------
+    // setup camera
+    camera = new Camera( glm::vec3(1.0f,0.0f,3.0f), // position
+			 glm::vec3(0.0f,0.0f,-1.0f), // front
+			 glm::vec3(0.0f,1.0f,0.0f), // up
+			 45.0f, // fov
+			 0.1f, // near
+			 100.0f ); // far
+    model = glm::mat4(1.0f);
+    view = glm::mat4(1.0f);
+    view = glm::lookAt(camera->getPos(), camera->getPos() + camera->getFront(), camera->getUp() );
+    projection = glm::mat4(1.0f);
+    projection = glm::perspective( camera->getFov(), (GLfloat)WIN_WIDTH/WIN_HEIGHT, camera->getNear(),
+				   camera->getFar() );
+
+    cubeShader->use();
+    uniformLocView = glGetUniformLocation( cubeShader->program, "V" );
+    glUniformMatrix4fv( glGetUniformLocation(cubeShader->program, "M"), 1, GL_FALSE, glm::value_ptr(model) );
+    glUniformMatrix4fv( uniformLocView, 1, GL_FALSE, glm::value_ptr(view) );
+    glUniformMatrix4fv( glGetUniformLocation(cubeShader->program, "P"), 1, GL_FALSE, glm::value_ptr(projection) );
+
+    // setup material
+    material = load_material( "./Materials/ruby.material" );
+    glUniform3f( glGetUniformLocation(cubeShader->program, "material.ambient"),
+		 material->getAmbient().x,
+		 material->getAmbient().y,
+		 material->getAmbient().z
+		 );
+    glUniform3f( glGetUniformLocation(cubeShader->program, "material.diffuse"),
+		 material->getDiffuse().x,
+		 material->getDiffuse().y,
+		 material->getDiffuse().z
+		 );
+    glUniform3f( glGetUniformLocation(cubeShader->program, "material.specular"),
+		 material->getSpecular().x,
+		 material->getSpecular().y,
+		 material->getSpecular().z
+		 );
+    glUniform1f( glGetUniformLocation(cubeShader->program, "material.shininess"), material->getShininess() );
+    // setup lighting parameters
+    lampPos = glm::vec3( 1.2f, 0.8f, -1.0f );
+    glUniform3f( glGetUniformLocation(cubeShader->program, "light.position"), lampPos.x, lampPos.y, lampPos.z );
+    glUniform3f( glGetUniformLocation(cubeShader->program, "light.ambient"), 0.5f, 0.5f, 0.5f );
+    glUniform3f( glGetUniformLocation(cubeShader->program, "light.diffuse"), 0.8f, 0.8f, 0.8f );
+    glUniform3f( glGetUniformLocation(cubeShader->program, "light.specular"), 1.0f, 1.0f, 1.0f );
+
+    // setup lamp vertices
+    lampShader->use();
+    uniformLocView = glGetUniformLocation( lampShader->program, "V" );
+    model = glm::mat4( 1.0f );
+    model = glm::translate( model, lampPos );
+    model = glm::scale( model, glm::vec3(0.2f, 0.2f, 0.2f) );
+    glUniformMatrix4fv( glGetUniformLocation(lampShader->program, "M"), 1, GL_FALSE, glm::value_ptr(model) );
+    glUniformMatrix4fv( uniformLocView, 1, GL_FALSE, glm::value_ptr(view) );
+    glUniformMatrix4fv( glGetUniformLocation(lampShader->program, "P"), 1, GL_FALSE, glm::value_ptr(projection) );
+
+
+}
+
+
+void key_callback( GLFWwindow* window, int key, int scancode, int action, int mode )
+{
+    if( key == GLFW_KEY_ESCAPE && action == GLFW_PRESS )
+	glfwSetWindowShouldClose( window, GL_TRUE );
+
+    if( action == GLFW_PRESS )
+    {
+	keys[key] = true;
+    }
+
+    if( action == GLFW_RELEASE )
+    {
+	keys[key] = false;
+    }
+}
+
+void doMovement()
+{
+    GLfloat speed = 0.05f;
+    if( keys[GLFW_KEY_W] )
+    {
+	camera->setPos( camera->getPos() + camera->getFront() * speed );
+    }
+
+    if( keys[GLFW_KEY_S] )
+    {
+	camera->setPos( camera->getPos() - camera->getFront() * speed );
+    }
+
+    if( keys[GLFW_KEY_A] )
+    {
+	camera->setPos( camera->getPos() - glm::cross(camera->getFront(), camera->getUp()) * speed );
+    }
+
+    if( keys[GLFW_KEY_D] )
+    {
+	camera->setPos( camera->getPos() + glm::cross(camera->getFront(), camera->getUp()) * speed );
+    }
+}
+
+//====================================================================================================
+// Mouse Movement
+//====================================================================================================
+void mouse_callback( GLFWwindow* window, double xpos, double ypos)
 {
     if( firstMouse )
     {
@@ -166,237 +471,50 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
     xoffset *= sensitivity;
     yoffset *= sensitivity;
 
-    yaw += xoffset;
-    pitch += yoffset;
+    cameraYaw += xoffset;
+    cameraPitch += yoffset;
 
-    // bounds
-    if( pitch > 89.0f )
-	pitch = 89.0f;
-    if( pitch < -89.0f )
-	pitch = -89.0f;
+    if( cameraPitch > 89.0f )
+    {
+	cameraPitch = 89.0f;
+    }
+    if( cameraPitch < -89.0f )
+    {
+	cameraPitch = -89.0f;
+    }
 
     glm::vec3 front;
-    front.x = cos( glm::radians(yaw) ) * cos( glm::radians(pitch) );
-    front.y = sin( glm::radians(pitch) );
-    front.z = sin( glm::radians(yaw) ) * cos( glm::radians(pitch) );
+    front.x = cos(glm::radians(cameraPitch)) * cos(glm::radians(cameraYaw));
+    front.y = sin(glm::radians(cameraPitch));
+    front.z = sin(glm::radians(cameraYaw)) * cos(glm::radians(cameraPitch));
 
     camera->setFront( front );
 }
 
 //====================================================================================================
-// Keyboard callback
+// Mouse Scroll
 //====================================================================================================
-void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+
+void scroll_callback( GLFWwindow* window, double xoffset, double yoffset)
 {
-    if( key == GLFW_KEY_ESCAPE && action == GLFW_PRESS )
-	glfwSetWindowShouldClose( window, GL_TRUE );
-
-
-    if( key >= 0 && key < 1024 )
+    float scrollSensitivity = 0.02f;
+    if( camera->getFov() >= 1.0f && camera->getFov() <= 45.0f )
+	camera->setFov( camera->getFov() - yoffset * scrollSensitivity )  ;
+    if( camera->getFov() <= 1.0f )
     {
-	if( action == GLFW_PRESS )
-	    keys[key] = true;
-	else if( action == GLFW_RELEASE )
-	    keys[key] = false;
+	camera->setFov( 1.0f );
     }
-}
-
-bool initFrameworks()
-{
-    if( !glfwInit() )
-    {
-	std::cout << "Failed to init GLFW3!" << std::endl;
-	return false;
-    }
-
-
-    glfwWindowHint( GLFW_CONTEXT_VERSION_MAJOR, 3 );
-    glfwWindowHint( GLFW_CONTEXT_VERSION_MINOR, 3 );
-    glfwWindowHint( GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE );
-    glfwWindowHint( GLFW_RESIZABLE, GL_FALSE );
-    // OSX specific
-    glfwWindowHint( GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE );
-    
-
-    window = glfwCreateWindow( WIDTH, HEIGHT, "09Materials", NULL, NULL );
-
-    if( window == NULL )
-    {
-	std::cout << "Failed to create window!" << std::endl;
-	return false;
-    }
-
-    // set key callback
-    glfwSetKeyCallback( window, key_callback );
-    // set mouse callback
-
-    glfwSetCursorPosCallback( window, mouse_callback );
-    glfwSetInputMode( window, GLFW_CURSOR, GLFW_CURSOR_DISABLED );
-
-    // make context current
-    glfwMakeContextCurrent( window );
-
-    // Init GLEW
-    glewExperimental = GL_TRUE;
-    if( glewInit() != GLEW_OK )
-    {
-	std::cout << "Failed to init GLEW!" << std::endl;
-	return false;
-    }
-
-    glViewport( 0, 0, WIDTH, HEIGHT );
-
-    return true;
-}
-
-void setupScene()
-{
-    glClearColor( 0.0f, 0.0f, 0.0f, 1.0f);
-
-
-    // setup cube
-    glGenVertexArrays( 1, &cubeVAO );
-    glGenBuffers( 1, &VBO );
-
-    glBindVertexArray( cubeVAO );
-    {
-	glBindBuffer( GL_ARRAY_BUFFER, VBO );
-	glBufferData( GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW );
-
-	glEnableVertexAttribArray( 0 );
-	glVertexAttribPointer( 0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0 );
-
-	glEnableVertexAttribArray( 1 );
-	glVertexAttribPointer( 1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)) );
-
-	glEnableVertexAttribArray( 2 )
-	    glVertexAttribPointer( 2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(6 *sizeof(GLfloat)) );
-    }
-    glBindVertexArray( 0 );
-    glBindBuffer( GL_ARRAY_BUFFER, 0 );
-
-
-    // setup mvp matrix
-    basicShader = new Shader( "basic.vert", "basic.frag" );
-    camera = new Camera( glm::vec3(1.0,1.0,4.0), glm::vec3(0.0,1.0,0.0),
-			 glm::vec3(0.0,0.0,-1.0), 45.0f, WIDTH / HEIGHT, 0.1f, 100.0f  );
-    model = glm::mat4(1.0f);
-    view = glm::mat4(1.0f);
-    projection = glm::mat4(1.0f);
-
-    view = glm::lookAt( camera->getPos() , camera->getPos() + camera->getFront(), camera->getUp() );
-    projection = glm::perspective( camera->getFOV(), camera->getRatio(), camera->getNear(), camera->getFar() );
-
-    basicShader->use();
-    uniformLocModel = glGetUniformLocation( basicShader->ProgramID, "M" );
-    uniformLocView = glGetUniformLocation( basicShader->ProgramID, "V" );
-    uniformLocProjection = glGetUniformLocation( basicShader->ProgramID, "P" );
-    uniformLocObjectColor = glGetUniformLocation( basicShader->ProgramID, "objectColor" );
-    uniformLocLightColor = glGetUniformLocation( basicShader->ProgramID, "lightColor" );
-    uniformLocLightPos= glGetUniformLocation( basicShader->ProgramID, "lightPos" );
-    uniformLocCameraPos = glGetUniformLocation( basicShader->ProgramID, "cameraPos" );
-    
-
-    glUniformMatrix4fv( uniformLocModel, 1, GL_FALSE, glm::value_ptr(model) );
-    glUniformMatrix4fv( uniformLocView, 1, GL_FALSE, glm::value_ptr(view) );
-    glUniformMatrix4fv( uniformLocProjection, 1, GL_FALSE, glm::value_ptr(projection) );
-    glUniform3f( uniformLocObjectColor, 0.5f, 0.2f, 0.0f );
-    glUniform3f( uniformLocLightColor, 1.0f, 1.0f, 1.0f );
-    glUniform3f( uniformLocLightPos, lightPos.x, lightPos.y, lightPos.z );
-    glUniform3f( uniformLocCameraPos, camera->getPos().x,
-		                      camera->getPos().y,
-		                      camera->getPos().z );
-
-
-    // setup light
-
-    glGenVertexArrays( 1, &lightVAO );
-
-    glBindVertexArray( lightVAO );
-    {
-	glBindBuffer( GL_ARRAY_BUFFER, VBO );
-
-	glEnableVertexAttribArray( 0 );
-	glVertexAttribPointer( 0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)0 );
-    }
-    glBindVertexArray( 0 );
-    glBindBuffer( GL_ARRAY_BUFFER, 0 );
-
-
-    
-    lightShader = new Shader( "light.vert", "light.frag" );
-    lightShader->use();
-
-    model = glm::translate( model, lightPos );
-    model = glm::scale( model, glm::vec3( 0.1, 0.1, 0.1 ) );
-    uniformLocModel = glGetUniformLocation( lightShader->ProgramID, "M" );
-    uniformLocView = glGetUniformLocation( lightShader->ProgramID, "V" );
-    uniformLocProjection = glGetUniformLocation( lightShader->ProgramID, "P" );
-
-    glUniformMatrix4fv( uniformLocModel, 1, GL_FALSE, glm::value_ptr(model) );
-    glUniformMatrix4fv( uniformLocView, 1, GL_FALSE, glm::value_ptr(view) );
-    glUniformMatrix4fv( uniformLocProjection, 1, GL_FALSE, glm::value_ptr(projection) );
-
-}
-
-void render()
-{
-    glEnable( GL_DEPTH_TEST );
-    glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-
-
-    // draw cube
-    basicShader->use();
-    glBindVertexArray( cubeVAO );
-    view = glm::lookAt( camera->getPos() , camera->getPos() + camera->getFront(), camera->getUp() );
-    uniformLocView = glGetUniformLocation( basicShader->ProgramID, "V" );
-    uniformLocCameraPos = glGetUniformLocation( basicShader->ProgramID, "cameraPos" );
-    glUniformMatrix4fv( uniformLocView, 1, GL_FALSE, glm::value_ptr(view) );
-    glUniform3f( uniformLocCameraPos, camera->getPos().x,
-		                      camera->getPos().y,
-		                      camera->getPos().z );
-
-    glDrawArrays( GL_TRIANGLES, 0, 36 );
-    glBindVertexArray( 0 );
-
-    // draw light
-    lightShader->use();
-    uniformLocView = glGetUniformLocation( lightShader->ProgramID, "V" );
-    glUniformMatrix4fv( uniformLocView, 1, GL_FALSE, glm::value_ptr(view) );
-
-    glBindVertexArray( lightVAO );
-    glDrawArrays( GL_TRIANGLES, 0, 36 );
-    glBindVertexArray( 0 );
-}
-//====================================================================================================
-// Camera Movement
-//====================================================================================================
-void doMovement()
-{
-    GLfloat cameraSpeed = 0.01f;
-    if( keys[GLFW_KEY_W] )
-    {
-	camera->setPos( camera->getPos() + cameraSpeed * camera->getFront() );
-    }
-    if( keys[GLFW_KEY_S] )
-    {
-	camera->setPos( camera->getPos() - cameraSpeed * camera->getFront() );
-    }
-    if( keys[GLFW_KEY_A] )
-    {
-	camera->setPos( camera->getPos() -
-			cameraSpeed * glm::normalize(glm::cross(camera->getFront(), camera->getUp())) );
-    }
-    if( keys[GLFW_KEY_D] )
-    {
-	camera->setPos( camera->getPos() +
-			cameraSpeed * glm::normalize(glm::cross(camera->getFront(), camera->getUp())) );
-    }
-	
+    if( camera->getFov() >= 45.0f )
+	camera->setFov( 45.0f );
 }
 
 void clean()
 {
-    delete basicShader;
+    delete cubeShader;
+    delete lampShader;
     delete camera;
+    delete material;
+    glfwTerminate();
 }
+
+

@@ -1,3 +1,3 @@
-/Users/larry/Code/learnopengl/09materials/build/CMakeFiles/edit_cache.dir
-/Users/larry/Code/learnopengl/09materials/build/CMakeFiles/rebuild_cache.dir
-/Users/larry/Code/learnopengl/09materials/build/CMakeFiles/main.dir
+/Users/larry/Code/learnopengl/09Materials/build/CMakeFiles/edit_cache.dir
+/Users/larry/Code/learnopengl/09Materials/build/CMakeFiles/rebuild_cache.dir
+/Users/larry/Code/learnopengl/09Materials/build/CMakeFiles/main.dir

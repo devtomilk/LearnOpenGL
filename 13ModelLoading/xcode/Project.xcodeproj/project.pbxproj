@@ -1,0 +1,893 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		0BBCC9B38CE44536B4C0A332 /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 5800FDC8EA7D43879323AB93 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				86E16D3726114832A77810A0 /* CMake Rules */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+		2F11C4AAF5F2461CB6957FF9 /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = D61FEDF3571649D6B25092C2 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				58D536662DEB4EDE97D40213 /* CMake Rules */,
+			);
+			dependencies = (
+				7CA1242B634A441CB3E2B12E /* PBXTargetDependency */,
+				0666880EA427406395F40824 /* PBXTargetDependency */,
+				F9A1C408D8E146ADA469FD5D /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		28EB6ACA8CBE45B183427C46 /* /Users/larry/Code/learnopengl/13ModelLoading/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = F1BBA05A25A54D3E8CBD7133 /* /Users/larry/Code/learnopengl/13ModelLoading/CMakeLists.txt */; settings = {COMPILER_FLAGS = ""; }; };
+		8B52EF3F445443DBAACCB90B /* /Users/larry/Code/learnopengl/13ModelLoading/voxel.cpp */ = {isa = PBXBuildFile; fileRef = BD7CA89E1C044528BD64D1B5 /* /Users/larry/Code/learnopengl/13ModelLoading/voxel.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		C331D9216E9F4787AAC6914E /* /Users/larry/Code/learnopengl/13ModelLoading/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 4FA93F97409D4CE9AC3808C9 /* /Users/larry/Code/learnopengl/13ModelLoading/CMakeLists.txt */; settings = {COMPILER_FLAGS = ""; }; };
+		D0B472E7F9C34883834818C3 /* /Users/larry/Code/learnopengl/13ModelLoading/main.cpp */ = {isa = PBXBuildFile; fileRef = 8A900AD4A28E452EB70A8618 /* /Users/larry/Code/learnopengl/13ModelLoading/main.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		1AA5B0B9026243388191E0BB = {
+			isa = PBXBuildStyle;
+		};
+		66A00FB08E04413BB07F82A8 /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		689CDDCEBAE04349945DFDA9 /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+		9BB8836867A5405D88E8F7CF /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+		FCDC61114C964CFFBE27DF39 /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		3DC5D0D1A5914C438F73AFC8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 046E345042D241E784115C84 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2AB24AEFEADA4877829BCD9C;
+			remoteInfo = voxel;
+		};
+		9EC6C4487F344DDAAE7E5C3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 046E345042D241E784115C84 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0BBCC9B38CE44536B4C0A332;
+			remoteInfo = ZERO_CHECK;
+		};
+		AAC322F002DC4BC4ABCFAEAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 046E345042D241E784115C84 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95823C498CBF40AAB4B474A6;
+			remoteInfo = main;
+		};
+		BBE7DB0617314C168C001537 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 046E345042D241E784115C84 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0BBCC9B38CE44536B4C0A332;
+			remoteInfo = ZERO_CHECK;
+		};
+		C2A781BF17A34245B37E15AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 046E345042D241E784115C84 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0BBCC9B38CE44536B4C0A332;
+			remoteInfo = ZERO_CHECK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		14E3C4E8E71D4D87BA7A85EB /* voxel */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = voxel; refType = 0; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FA93F97409D4CE9AC3808C9 /* /Users/larry/Code/learnopengl/13ModelLoading/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		8A900AD4A28E452EB70A8618 /* /Users/larry/Code/learnopengl/13ModelLoading/main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = main.cpp; path = main.cpp; sourceTree = SOURCE_ROOT; };
+		984DC9E485E94F4B88FB762D /* main */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = main; refType = 0; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC44A74C09CA4B80AB3E6255 /* /Users/larry/Code/learnopengl/13ModelLoading/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		BD7CA89E1C044528BD64D1B5 /* /Users/larry/Code/learnopengl/13ModelLoading/voxel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = voxel.cpp; path = voxel.cpp; sourceTree = SOURCE_ROOT; };
+		CAD41F93ED6042AEB460EAD6 /* /Users/larry/Code/learnopengl/13ModelLoading/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		F1BBA05A25A54D3E8CBD7133 /* /Users/larry/Code/learnopengl/13ModelLoading/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		23A0B0DE90CA406D8AFB9791 /* ZERO_CHECK */ = {
+			isa = PBXGroup;
+			children = (
+				802B2E4F91C94ED18034446E /* CMake Rules */,
+				CAD41F93ED6042AEB460EAD6 /* /Users/larry/Code/learnopengl/13ModelLoading/CMakeLists.txt */,
+			);
+			name = ZERO_CHECK;
+			sourceTree = "<group>";
+		};
+		5ABB262EC4A14249AB024A20 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AF7FE758814040628A00BBB6 /* voxel */,
+				989EF1FA6EC345838541EE6A /* main */,
+				FC845A30BBBA4CC9A3F1F509 /* ALL_BUILD */,
+				23A0B0DE90CA406D8AFB9791 /* ZERO_CHECK */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		72A2FFCD53C8438C80CADFA3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		802B2E4F91C94ED18034446E /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		8F85CBD1A95C459BB1CBBAA7 = {
+			isa = PBXGroup;
+			children = (
+				5ABB262EC4A14249AB024A20 /* Sources */,
+				72A2FFCD53C8438C80CADFA3 /* Resources */,
+				BA5A6ED1E87A4CE2B322903A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		989EF1FA6EC345838541EE6A /* main */ = {
+			isa = PBXGroup;
+			children = (
+				A6DFD6DD8B144A619DCF67EA /* Source Files */,
+				F1BBA05A25A54D3E8CBD7133 /* /Users/larry/Code/learnopengl/13ModelLoading/CMakeLists.txt */,
+			);
+			name = main;
+			sourceTree = "<group>";
+		};
+		A6DFD6DD8B144A619DCF67EA /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				8A900AD4A28E452EB70A8618 /* /Users/larry/Code/learnopengl/13ModelLoading/main.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		AF7FE758814040628A00BBB6 /* voxel */ = {
+			isa = PBXGroup;
+			children = (
+				D661EA57F02E45128E1D4432 /* Source Files */,
+				4FA93F97409D4CE9AC3808C9 /* /Users/larry/Code/learnopengl/13ModelLoading/CMakeLists.txt */,
+			);
+			name = voxel;
+			sourceTree = "<group>";
+		};
+		BA5A6ED1E87A4CE2B322903A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				984DC9E485E94F4B88FB762D /* main */,
+				14E3C4E8E71D4D87BA7A85EB /* voxel */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D661EA57F02E45128E1D4432 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				BD7CA89E1C044528BD64D1B5 /* /Users/larry/Code/learnopengl/13ModelLoading/voxel.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		D813B829CF7B484F9736B4FD /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		FC845A30BBBA4CC9A3F1F509 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				D813B829CF7B484F9736B4FD /* CMake Rules */,
+				AC44A74C09CA4B80AB3E6255 /* /Users/larry/Code/learnopengl/13ModelLoading/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2AB24AEFEADA4877829BCD9C /* voxel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C017D12B9BE6408A98E468AD /* Build configuration list for PBXNativeTarget "voxel" */;
+			buildPhases = (
+				2D649209062E4A93BD69AD24 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2384BE8602241AFB93E8AF6 /* PBXTargetDependency */,
+			);
+			name = voxel;
+			productName = voxel;
+			productReference = 14E3C4E8E71D4D87BA7A85EB /* voxel */;
+			productType = "com.apple.product-type.tool";
+		};
+		95823C498CBF40AAB4B474A6 /* main */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2862F8EBAD23418F80F5CB09 /* Build configuration list for PBXNativeTarget "main" */;
+			buildPhases = (
+				A2FD9C82D6FD41B2800CFBBA /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9DBCDA0D0D2A4A7AB0906243 /* PBXTargetDependency */,
+			);
+			name = main;
+			productName = main;
+			productReference = 984DC9E485E94F4B88FB762D /* main */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		046E345042D241E784115C84 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 0720;
+			};
+			buildConfigurationList = 62AE73EC0D944E6886E3C922 /* Build configuration list for PBXProject "Project" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				66A00FB08E04413BB07F82A8 /* Debug */,
+				FCDC61114C964CFFBE27DF39 /* Release */,
+				9BB8836867A5405D88E8F7CF /* MinSizeRel */,
+				689CDDCEBAE04349945DFDA9 /* RelWithDebInfo */,
+			);
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = 8F85CBD1A95C459BB1CBBAA7;
+			projectDirPath = ../;
+			projectRoot = "";
+			targets = (
+				2F11C4AAF5F2461CB6957FF9 /* ALL_BUILD */,
+				0BBCC9B38CE44536B4C0A332 /* ZERO_CHECK */,
+				95823C498CBF40AAB4B474A6 /* main */,
+				2AB24AEFEADA4877829BCD9C /* voxel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1C94BF15F3B3440DB01409F4 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		57795059030D440AA97B46E2 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		58D536662DEB4EDE97D40213 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/larry/Code/learnopengl/13ModelLoading/xcode -f /Users/larry/Code/learnopengl/13ModelLoading/xcode/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		86E16D3726114832A77810A0 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/larry/Code/learnopengl/13ModelLoading/xcode -f /Users/larry/Code/learnopengl/13ModelLoading/xcode/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2D649209062E4A93BD69AD24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B52EF3F445443DBAACCB90B /* /Users/larry/Code/learnopengl/13ModelLoading/voxel.cpp */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2FD9C82D6FD41B2800CFBBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0B472E7F9C34883834818C3 /* /Users/larry/Code/learnopengl/13ModelLoading/main.cpp */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0666880EA427406395F40824 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 95823C498CBF40AAB4B474A6 /* main */;
+			targetProxy = AAC322F002DC4BC4ABCFAEAF /* PBXContainerItemProxy */;
+		};
+		7CA1242B634A441CB3E2B12E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2AB24AEFEADA4877829BCD9C /* voxel */;
+			targetProxy = 3DC5D0D1A5914C438F73AFC8 /* PBXContainerItemProxy */;
+		};
+		9DBCDA0D0D2A4A7AB0906243 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0BBCC9B38CE44536B4C0A332 /* ZERO_CHECK */;
+			targetProxy = 9EC6C4487F344DDAAE7E5C3F /* PBXContainerItemProxy */;
+		};
+		D2384BE8602241AFB93E8AF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0BBCC9B38CE44536B4C0A332 /* ZERO_CHECK */;
+			targetProxy = BBE7DB0617314C168C001537 /* PBXContainerItemProxy */;
+		};
+		F9A1C408D8E146ADA469FD5D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0BBCC9B38CE44536B4C0A332 /* ZERO_CHECK */;
+			targetProxy = C2A781BF17A34245B37E15AB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		02950CD5CF0A4BAC90894BB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				FRAMEWORK_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks, );
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include, );
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = " /usr/local/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) /usr/local/lib";
+				OTHER_CPLUSPLUSFLAGS = "-std=c++11     ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -lGLEW -lglfw3 -lSOIL -lassimp -framework OpenGL";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = voxel;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/larry/Code/learnopengl/13ModelLoading/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		09236B75C9B1419A877A834F /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				FRAMEWORK_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks, );
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include, );
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = " /usr/local/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) /usr/local/lib";
+				OTHER_CPLUSPLUSFLAGS = "-std=c++11     -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -lGLEW -lglfw3 -lSOIL -lassimp -framework OpenGL";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = voxel;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/larry/Code/learnopengl/13ModelLoading/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		0A97C37F97EF4B43B5BBA4A3 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Users/larry/Code/learnopengl/13ModelLoading/xcode/build;
+			};
+			name = RelWithDebInfo;
+		};
+		452AC0E0E1664D638B0A2406 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks, );
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include, );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/larry/Code/learnopengl/13ModelLoading/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		4C3D3F4764FE4E53A4E47209 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks, );
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include, );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/larry/Code/learnopengl/13ModelLoading/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		55B0B95F38694F1298A18D06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				FRAMEWORK_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks, );
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include, );
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = " /usr/local/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) /usr/local/lib";
+				OTHER_CPLUSPLUSFLAGS = "-std=c++11     -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -lGLEW -lglfw3 -lSOIL -lassimp -framework OpenGL";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = voxel;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/larry/Code/learnopengl/13ModelLoading/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		5A589BC001474D50B4090BA7 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks, );
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include, );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/larry/Code/learnopengl/13ModelLoading/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		73A3F5596E8543D29EAACF04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				FRAMEWORK_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks, );
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include, );
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = " /usr/local/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) /usr/local/lib";
+				OTHER_CPLUSPLUSFLAGS = "-std=c++11     ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -lGLEW -lglfw3 -lSOIL -lassimp -framework OpenGL";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = main;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/larry/Code/learnopengl/13ModelLoading/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		7CA7DDE7F4E94D86AABD7F6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks, );
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include, );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/larry/Code/learnopengl/13ModelLoading/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		7F39778115544C7AAEDC46E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks, );
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include, );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/larry/Code/learnopengl/13ModelLoading/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		87AFD6299A8B421A90955854 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Users/larry/Code/learnopengl/13ModelLoading/xcode/build;
+			};
+			name = MinSizeRel;
+		};
+		8922FE00D4044D308D33FBA5 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				FRAMEWORK_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks, );
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include, );
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = " /usr/local/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) /usr/local/lib";
+				OTHER_CPLUSPLUSFLAGS = "-std=c++11     -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -lGLEW -lglfw3 -lSOIL -lassimp -framework OpenGL";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = main;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/larry/Code/learnopengl/13ModelLoading/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		9D53DCB7E732424A81ACD3A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Users/larry/Code/learnopengl/13ModelLoading/xcode/build;
+			};
+			name = Release;
+		};
+		A38CE627A79E4F73946F9A37 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				FRAMEWORK_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks, );
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include, );
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = " /usr/local/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) /usr/local/lib";
+				OTHER_CPLUSPLUSFLAGS = "-std=c++11        -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -lGLEW -lglfw3 -lSOIL -lassimp -framework OpenGL";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = voxel;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/larry/Code/learnopengl/13ModelLoading/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		D86FE34498264679B355CC0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				FRAMEWORK_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks, );
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include, );
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = " /usr/local/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) /usr/local/lib";
+				OTHER_CPLUSPLUSFLAGS = "-std=c++11     -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -lGLEW -lglfw3 -lSOIL -lassimp -framework OpenGL";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = main;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/larry/Code/learnopengl/13ModelLoading/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		E19ACB5B671040DF84AC3FC2 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				FRAMEWORK_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks, );
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include, );
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = " /usr/local/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) /usr/local/lib";
+				OTHER_CPLUSPLUSFLAGS = "-std=c++11        -DNDEBUG  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -lGLEW -lglfw3 -lSOIL -lassimp -framework OpenGL";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = main;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/larry/Code/learnopengl/13ModelLoading/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		E21E8874F2F34103B6ED80A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks, );
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include, );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/larry/Code/learnopengl/13ModelLoading/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		EBDF322B8FE7406CA14A9A86 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks, );
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include, );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/larry/Code/learnopengl/13ModelLoading/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		F18C6431619F469C92BEA7E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Users/larry/Code/learnopengl/13ModelLoading/xcode/build;
+			};
+			name = Debug;
+		};
+		F73EAF249E8E4A2AA744FE84 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks, );
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include, );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/larry/Code/learnopengl/13ModelLoading/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2862F8EBAD23418F80F5CB09 /* Build configuration list for PBXNativeTarget "main" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73A3F5596E8543D29EAACF04 /* Debug */,
+				D86FE34498264679B355CC0B /* Release */,
+				8922FE00D4044D308D33FBA5 /* MinSizeRel */,
+				E19ACB5B671040DF84AC3FC2 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5800FDC8EA7D43879323AB93 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C3D3F4764FE4E53A4E47209 /* Debug */,
+				7CA7DDE7F4E94D86AABD7F6B /* Release */,
+				452AC0E0E1664D638B0A2406 /* MinSizeRel */,
+				EBDF322B8FE7406CA14A9A86 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		62AE73EC0D944E6886E3C922 /* Build configuration list for PBXProject "Project" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F18C6431619F469C92BEA7E0 /* Debug */,
+				9D53DCB7E732424A81ACD3A0 /* Release */,
+				87AFD6299A8B421A90955854 /* MinSizeRel */,
+				0A97C37F97EF4B43B5BBA4A3 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C017D12B9BE6408A98E468AD /* Build configuration list for PBXNativeTarget "voxel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02950CD5CF0A4BAC90894BB7 /* Debug */,
+				55B0B95F38694F1298A18D06 /* Release */,
+				09236B75C9B1419A877A834F /* MinSizeRel */,
+				A38CE627A79E4F73946F9A37 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D61FEDF3571649D6B25092C2 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F39778115544C7AAEDC46E1 /* Debug */,
+				E21E8874F2F34103B6ED80A2 /* Release */,
+				F73EAF249E8E4A2AA744FE84 /* MinSizeRel */,
+				5A589BC001474D50B4090BA7 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 046E345042D241E784115C84 /* Project object */;
+}

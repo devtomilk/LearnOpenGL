@@ -1,80 +1,73 @@
 #ifndef CAMERA_H_
 #define CAMERA_H_
 
-#include <iostream>
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 
-class Camera
-{
+using namespace glm;
+class Camera {
  public:
-    Camera( glm::vec3 position, glm::vec3 up, glm::vec3 front, GLfloat fov, GLfloat ratio, GLfloat near, GLfloat far)
+    Camera( vec3 position, vec3 front, vec3 up, GLfloat fov, GLfloat near, GLfloat far )
     {
 	_position = position;
-	_up = up;
 	_front = front;
-	_ratio = ratio;
+	_up = up;
 	_fov = fov;
 	_near = near;
 	_far = far;
     }
-
-    glm::vec3 getPos()
+    GLfloat getFov()
     {
-	return _position;
+	return _fov;
+    }
+    void setFov(GLfloat fov)
+    {
+	_fov = fov;
     }
 
-    glm::vec3 getUp()
-    {
-	return _up;
-    }
-
-    
-    float getRatio()
-    {
-	return _ratio;
-    }
-
-    
-    float getNear()
+    GLfloat getNear()
     {
 	return _near;
     }
 
-    
-    float getFar()
+    GLfloat getFar()
     {
 	return _far;
     }
 
-    float getFOV()
+    vec3 getPos()
     {
-	return _fov;
+	return _position;
     }
-
-    void setPos( glm::vec3 position )
+    void setPos(vec3 position)
     {
 	_position = position;
     }
 
-    void setFront( glm::vec3 front )
+    vec3 getFront()
+    {
+	return _front;
+    }
+    void setFront(vec3 front)
     {
 	_front = front;
     }
 
-    glm::vec3 getFront()
+    vec3 getUp()
     {
-	return _front;
+	return _up;
+    }
+    void setUp(vec3 up)
+    {
+	_up = up;
     }
 
  private:
-    glm::vec3 _position;
-    glm::vec3 _up;
-    glm::vec3 _front;
+    vec3 _position;
+    vec3 _front;
+    vec3 _up;
     GLfloat _fov;
     GLfloat _far;
     GLfloat _near;
-    GLfloat _ratio;
 };
-
 #endif

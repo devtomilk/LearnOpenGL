@@ -1,0 +1,3 @@
+/Users/larry/Code/learnopengl/03Textures/build/CMakeFiles/edit_cache.dir
+/Users/larry/Code/learnopengl/03Textures/build/CMakeFiles/rebuild_cache.dir
+/Users/larry/Code/learnopengl/03Textures/build/CMakeFiles/main.dir

@@ -1,0 +1,3 @@
+/Users/larry/Code/learnopengl/01HelloWindow/build/CMakeFiles/edit_cache.dir
+/Users/larry/Code/learnopengl/01HelloWindow/build/CMakeFiles/rebuild_cache.dir
+/Users/larry/Code/learnopengl/01HelloWindow/build/CMakeFiles/main.dir

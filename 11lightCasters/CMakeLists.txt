@@ -1,14 +1,23 @@
 cmake_minimum_required(VERSION 2.8.9)
-project(10lightMpas)
 
-SET( CMAKE_CXX_FLAGS "-std=c++11 -stdlib=libc++" )
+SET( CMAKE_CXX_FLAGS "-std=c++11" )
 
+# libraries
 find_package(OpenGL REQUIRED)
-include_directories(${OPENGL_INCLUDE_DIR})
+include_directories( ${OPENGL_INCLUDE_DIR} )
 
-set ( PROJECT_LINK_LIBS libGLEW.dylib libglfw3.dylib libSOIL.dylib )
+set( PROJECT_LINK_LIBS libGLEW.dylib libglfw3.dylib libSOIL.dylib )
 link_directories( /usr/local/lib )
 include_directories( /usr/local/include )
 
-add_executable( main main.cpp )
-target_link_libraries( main ${PROJECT_LINK_LIBS} ${OPENGL_LIBRARIES} )
+# executables
+add_executable( directional directional.cpp )
+target_link_libraries( directional ${PROJECT_LINK_LIBS} ${OPENGL_LIBRARIES} )
+
+add_executable( point point.cpp )
+target_link_libraries( point ${PROJECT_LINK_LIBS} ${OPENGL_LIBRARIES} )
+
+add_executable( spot spot.cpp )
+target_link_libraries( spot ${PROJECT_LINK_LIBS} ${OPENGL_LIBRARIES} )
+
+

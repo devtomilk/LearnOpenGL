@@ -1,4 +1,4 @@
-# Install script for directory: /Users/larry/code/learnopengl/10lightingMaps
+# Install script for directory: /Users/larry/Code/learnopengl/11LightCasters
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/larry/code/learnopengl/10lightingMaps/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/larry/Code/learnopengl/11LightCasters/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

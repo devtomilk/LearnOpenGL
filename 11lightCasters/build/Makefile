@@ -48,10 +48,10 @@ RM = /usr/local/Cellar/cmake/3.5.0/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/larry/code/learnopengl/10lightingMaps
+CMAKE_SOURCE_DIR = /Users/larry/Code/learnopengl/11LightCasters
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/larry/code/learnopengl/10lightingMaps/build
+CMAKE_BINARY_DIR = /Users/larry/Code/learnopengl/11LightCasters/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/larry/code/learnopengl/10lightingMaps/build/CMakeFiles /Users/larry/code/learnopengl/10lightingMaps/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/larry/Code/learnopengl/11LightCasters/build/CMakeFiles /Users/larry/Code/learnopengl/11LightCasters/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/larry/code/learnopengl/10lightingMaps/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/larry/Code/learnopengl/11LightCasters/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,44 +111,124 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named main
+# Target rules for targets named spot
 
 # Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 main
-.PHONY : main
+spot: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 spot
+.PHONY : spot
 
 # fast build rule for target.
-main/fast:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-.PHONY : main/fast
+spot/fast:
+	$(MAKE) -f CMakeFiles/spot.dir/build.make CMakeFiles/spot.dir/build
+.PHONY : spot/fast
 
-main.o: main.cpp.o
+#=============================================================================
+# Target rules for targets named point
 
-.PHONY : main.o
+# Build rule for target.
+point: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 point
+.PHONY : point
+
+# fast build rule for target.
+point/fast:
+	$(MAKE) -f CMakeFiles/point.dir/build.make CMakeFiles/point.dir/build
+.PHONY : point/fast
+
+#=============================================================================
+# Target rules for targets named directional
+
+# Build rule for target.
+directional: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 directional
+.PHONY : directional
+
+# fast build rule for target.
+directional/fast:
+	$(MAKE) -f CMakeFiles/directional.dir/build.make CMakeFiles/directional.dir/build
+.PHONY : directional/fast
+
+directional.o: directional.cpp.o
+
+.PHONY : directional.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
-.PHONY : main.cpp.o
+directional.cpp.o:
+	$(MAKE) -f CMakeFiles/directional.dir/build.make CMakeFiles/directional.dir/directional.cpp.o
+.PHONY : directional.cpp.o
 
-main.i: main.cpp.i
+directional.i: directional.cpp.i
 
-.PHONY : main.i
+.PHONY : directional.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
-.PHONY : main.cpp.i
+directional.cpp.i:
+	$(MAKE) -f CMakeFiles/directional.dir/build.make CMakeFiles/directional.dir/directional.cpp.i
+.PHONY : directional.cpp.i
 
-main.s: main.cpp.s
+directional.s: directional.cpp.s
 
-.PHONY : main.s
+.PHONY : directional.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
-.PHONY : main.cpp.s
+directional.cpp.s:
+	$(MAKE) -f CMakeFiles/directional.dir/build.make CMakeFiles/directional.dir/directional.cpp.s
+.PHONY : directional.cpp.s
+
+point.o: point.cpp.o
+
+.PHONY : point.o
+
+# target to build an object file
+point.cpp.o:
+	$(MAKE) -f CMakeFiles/point.dir/build.make CMakeFiles/point.dir/point.cpp.o
+.PHONY : point.cpp.o
+
+point.i: point.cpp.i
+
+.PHONY : point.i
+
+# target to preprocess a source file
+point.cpp.i:
+	$(MAKE) -f CMakeFiles/point.dir/build.make CMakeFiles/point.dir/point.cpp.i
+.PHONY : point.cpp.i
+
+point.s: point.cpp.s
+
+.PHONY : point.s
+
+# target to generate assembly for a file
+point.cpp.s:
+	$(MAKE) -f CMakeFiles/point.dir/build.make CMakeFiles/point.dir/point.cpp.s
+.PHONY : point.cpp.s
+
+spot.o: spot.cpp.o
+
+.PHONY : spot.o
+
+# target to build an object file
+spot.cpp.o:
+	$(MAKE) -f CMakeFiles/spot.dir/build.make CMakeFiles/spot.dir/spot.cpp.o
+.PHONY : spot.cpp.o
+
+spot.i: spot.cpp.i
+
+.PHONY : spot.i
+
+# target to preprocess a source file
+spot.cpp.i:
+	$(MAKE) -f CMakeFiles/spot.dir/build.make CMakeFiles/spot.dir/spot.cpp.i
+.PHONY : spot.cpp.i
+
+spot.s: spot.cpp.s
+
+.PHONY : spot.s
+
+# target to generate assembly for a file
+spot.cpp.s:
+	$(MAKE) -f CMakeFiles/spot.dir/build.make CMakeFiles/spot.dir/spot.cpp.s
+.PHONY : spot.cpp.s
 
 # Help Target
 help:
@@ -158,10 +238,18 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... main"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... spot"
+	@echo "... point"
+	@echo "... directional"
+	@echo "... directional.o"
+	@echo "... directional.i"
+	@echo "... directional.s"
+	@echo "... point.o"
+	@echo "... point.i"
+	@echo "... point.s"
+	@echo "... spot.o"
+	@echo "... spot.i"
+	@echo "... spot.s"
 .PHONY : help
 
 

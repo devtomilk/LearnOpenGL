@@ -1,3 +1,5 @@
-/Users/larry/code/learnopengl/10lightingMaps/build/CMakeFiles/edit_cache.dir
-/Users/larry/code/learnopengl/10lightingMaps/build/CMakeFiles/rebuild_cache.dir
-/Users/larry/code/learnopengl/10lightingMaps/build/CMakeFiles/main.dir
+/Users/larry/Code/learnopengl/11LightCasters/build/CMakeFiles/edit_cache.dir
+/Users/larry/Code/learnopengl/11LightCasters/build/CMakeFiles/rebuild_cache.dir
+/Users/larry/Code/learnopengl/11LightCasters/build/CMakeFiles/spot.dir
+/Users/larry/Code/learnopengl/11LightCasters/build/CMakeFiles/point.dir
+/Users/larry/Code/learnopengl/11LightCasters/build/CMakeFiles/directional.dir

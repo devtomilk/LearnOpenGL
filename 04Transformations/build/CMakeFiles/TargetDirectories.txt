@@ -1,0 +1,3 @@
+/Users/larry/Code/learnopengl/04Transformations/build/CMakeFiles/edit_cache.dir
+/Users/larry/Code/learnopengl/04Transformations/build/CMakeFiles/rebuild_cache.dir
+/Users/larry/Code/learnopengl/04Transformations/build/CMakeFiles/main.dir
